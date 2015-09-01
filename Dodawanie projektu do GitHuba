@@ -1,0 +1,9 @@
+
+- na GitHub stworzyc rezpoztorium i zanaczyc "Initialize this repository with a README "
+- wejsc do folderu porojektu
+- git init
+- git add .
+- git commit -m "Nazwa commitu"
+- git remote add origin adres_URL_repo_na_github
+- git pull adres_URL_repo_na_github master
+- git push -u origin master
