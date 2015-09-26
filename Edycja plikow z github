@@ -1,0 +1,9 @@
+git init       //inicjalizacja repozytorium
+git remote add origin [URL]    //dodanie URL githuba do repo
+git pull [URL]   // zaciagniecie zmian
+
+// edycja plikow 
+
+git add .
+git commit -m "Tresc commitu"
+git push -u origin master  //wrzucenie zmian an githuba 
