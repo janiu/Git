@@ -1,0 +1,107 @@
+git diff HEAD -> sprawdzanie wprowadoznych zmian w respozytorium
+git add Plik.txt  ->dodanie pliku o nazwie "Plik.txt" do repozytorium
+git commit -m "Zmiana nr.5" -> zatwierdzenie zmian wprowadzonych w repozytorium pod nazwa "Zmiana nr.5"
+git status -> pokazuje status plikow gotowych do commita
+
+q -> wychodzi z log-ów
+git branch cleanUp -> utowrzenie ga³ezi o nazwie cleanUp
+git checkout cleanUp -> przelaczenie sie na ga³ez cleanUp
+git merge cleanUp ->po³aczeni zmian w dwoch ga³eziach (cleanUp i tej w ktorej jestesmy)
+git branch -d cleanUp ->usuniecie ga³ezi o nazwie "cleanUp"
+
+
+Dodawanie projektu do GitHuba:
+- na GitHub stworzyc rezpoztorium i zanaczyc "Initialize this repository with a README "
+- wejsc do folderu porojektu
+- git init
+- git add .
+- git commit -m "Nazwa commitu"
+- git remote add origin adres_URL_repo_na_github
+- git pull adres_URL_repo_na_github master
+- git push -u origin master
+
+https://github.com/janiu/DrivingSchool.git
+
+
+Rewizja/Snapshot - zapis stanu wsyztskich plikow w folderze (add i commit)
+Pliki aktualne/unmodifid - pliki nie zmienione od ostatniej rewizji (jego stany w obszarze roboczym i repo sa identyczne)
+Pliki zmodyfikowane/modified - pliki zmienione od osttaniej rewizji (jego stany w obszarze roboczym i repo roznia sie)
+Obszar roboczy/working directory - pliki z folderu projektu z wykluczeniem podfolderu .git (lub pliki roznaica sie od tych w repo)
+Pliki niesledzone/untracked - nowo utworzony plik (jest w obszarze roboczym ale nie w repo)
+Repozytorium - baza danych rewizji zawarta w folderze .git
+Pliki zaindeksowane/staged - pliki po komencie add ale przed commit
+Pliki niezaindeksowane/unstaged - pliki zmodyfikowane przed komenda add
+Repozytorium surowe - repo bez indeksu i obszaru roboczego
+
+
+1. Lista zmian wprowadoznych w tym repozytorium
+git log 
+
+2. Kopiowanie Repo
+git clone [adresGitHub] 
+
+3. Inicjowanie repo
+git init
+
+4. Lista zmian w trybie graficznym
+gitk
+
+5. Przywrocenie stanu osttaniej rewizji
+git reset --hard   lub   git checkout -f
+
+6.Przywracanie stanu wybranej rewizji
+git reset --hard [nrRewizji]
+
+7. Pokazuje roznice z osttania rewizja (??->niesledzone / A->zaindeksowane / M->niezaindeksowane / D->usuniety / R->zmieniona nazwa )
+git status     lub     git status -s
+
+8. Tworzenie nowej rewizji
+git add --all     lub   git add [nazwaPliku]
+git commit -m "Komentarz"
+
+9. Wyswieltnie aktualnej galezi
+git branch
+
+10. Powrot na master
+git checkout master
+
+11. Kloniwanie/Tworzenie surowego repo
+git init --bare    lub git clone --bare [adresGitHub] 
+
+12. Ignorowanie pliku (dziala tylko na pliki ktore nie by³y w ¿adnej rewizji)
+do pliku .gitignore dodac /sciezka/do/pliku/nazwa.rozszrzenie     lub    do pliku .git/info/exclude dodac /sciezka/do/pliku/nazwa.rozszrzenie
+
+13. Tworzenie znacznikow opisowych
+git tag NAZWA -m "Komenatrz" [nrRewizji]
+
+14. Tworzenie znacznikow lekkich 
+git tag NAZWA [nrRewizji]
+
+15. Wyswietl znaczniki 
+git tag
+
+16. Przejdz do n-tego przodka
+[nrRewizji] ~ n
+
+17. Przejdz do n-tego rodzica
+[nrRewizji] ^ n
+
+18. WYswietlanie dziennika reflog
+git reflog
+
+20. Wyswietlanie rewizji z podizalem na galezie rodzicow 
+git log --graph
+
+21. Edycja osttaniej rewizji
+git add --all
+git commit --amend -m "Komenatrz"
+
+22. Scalanie poprzednich rewizji
+git rebase -i [nrReizjiOdKtorejRozpoczneScalanie]
+Nastepnie w pliku tekstowym zmieniamy komendy wedlug legendy(fixup scala calkwoicie rewizje)
+
+23. Odwrocenie zmian w rewizji
+git revert --no-edit [nrRewizji]
+
+24. Przywrocenie wybranego pliku
+git checkout -f [nrRewizji] [nazwaPliku]
